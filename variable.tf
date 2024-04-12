@@ -25,7 +25,7 @@ variable "private_subnet_name" {
 
 variable "availability_zone" {
   description = "The availability zone for the private subnet."
-  default     = "us-west-2a"
+  default     = "us-east-1a"
 }
 
 variable "private_route_table_name" {
