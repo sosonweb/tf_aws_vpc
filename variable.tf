@@ -15,7 +15,7 @@ variable "vpc_name" {
 
 variable "private_subnet_cidr_block" {
   description = "The CIDR block for the private subnet."
-  default     = "10.10.07.07/24"
+  default     = "10.0.1.0/24"
 }
 
 variable "private_subnet_name" {
