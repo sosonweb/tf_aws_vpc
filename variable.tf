@@ -13,9 +13,14 @@ variable "vpc_name" {
   default     = "vpc_sos"
 }
 
-variable "private_subnet_cidr_block" {
-  description = "The CIDR block for the private subnet."
+variable "private_subnet_cidr_block_1" {
+  description = "The CIDR block for the private subnet 1"
   default     = "10.0.1.0/24"
+}
+
+variable "private_subnet_cidr_block_2" {
+  description = "The CIDR block for the private subnet 2"
+  default     = "10.0.2.0/24"
 }
 
 variable "private_subnet_name" {
@@ -23,9 +28,14 @@ variable "private_subnet_name" {
   default     = "PrivateSubnet"
 }
 
-variable "availability_zone" {
+variable "availability_zone_1" {
   description = "The availability zone for the private subnet."
   default     = "us-east-1a"
+}
+
+variable "availability_zone_2" {
+  description = "The availability zone for the private subnet."
+  default     = "us-east-1b"
 }
 
 variable "private_route_table_name" {
@@ -51,4 +61,9 @@ variable "public_subnet_name_1" {
 variable "public_subnet_name_2" {
   description = "The name tag for the second public subnet."
   default     = "PublicSubnet2"
+}
+
+variable "internet_gateway_name" {
+  description = "The name tag for the internet gateway."
+  default     = "my-igw"
 }
