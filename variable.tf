@@ -32,3 +32,23 @@ variable "private_route_table_name" {
   description = "The name tag for the private route table."
   default     = "PrivateRouteTable"
 }
+
+variable "public_subnet_cidr_block_1" {
+  description = "The CIDR block for the first public subnet."
+  default     = "10.0.2.0/24"
+}
+
+variable "public_subnet_cidr_block_2" {
+  description = "The CIDR block for the second public subnet."
+  default     = "10.0.3.0/24"
+}
+
+variable "public_subnet_name_1" {
+  description = "The name tag for the first public subnet."
+  default     = "PublicSubnet1"
+}
+
+variable "public_subnet_name_2" {
+  description = "The name tag for the second public subnet."
+  default     = "PublicSubnet2"
+}
