@@ -23,9 +23,14 @@ variable "private_subnet_cidr_block_2" {
   default     = "10.0.2.0/24"
 }
 
-variable "private_subnet_name" {
+variable "private_subnet_name_1" {
   description = "The name tag for the private subnet."
-  default     = "PrivateSubnet"
+  default     = "PrivateSubnet1"
+}
+
+variable "private_subnet_name_2" {
+  description = "The name tag for the private subnet."
+  default     = "PrivateSubnet2"
 }
 
 variable "availability_zone_1" {
