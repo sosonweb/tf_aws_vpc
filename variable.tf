@@ -33,6 +33,11 @@ variable "private_subnet_name_2" {
   default     = "PrivateSubnet2"
 }
 
+variable "private_subnet_name_2" {
+  description = "The name tag for the private subnet."
+  default     = "PrivateSubnet2"
+}
+
 variable "availability_zone_1" {
   description = "The availability zone for the private subnet."
   default     = "us-east-1a"

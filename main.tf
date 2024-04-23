@@ -28,7 +28,7 @@ resource "aws_subnet" "private_subnet_2" {
   map_public_ip_on_launch = false
 
   tags = {
-    Name = var.private_subnet_name_1
+    Name = var.private_subnet_name_2
   }
 }
 
@@ -60,18 +60,28 @@ resource "aws_route_table" "private_route_table" {
   }
 }
 
-resource "aws_route_table_association" "private_subnet_association" {
-  subnet_id      = [aws_subnet.private_subnet_1.id, aws_subnet.private_subnet_2.id]
+resource "aws_route_table_association" "private_subnet_association_1" {
+  subnet_id      = aws_subnet.private_subnet_1.id
+  route_table_id = aws_route_table.private_route_table.id
+}
+
+resource "aws_route_table_association" "private_subnet_association_2" {
+  subnet_id      = aws_subnet.private_subnet_2.id
   route_table_id = aws_route_table.private_route_table.id
 }
 
 resource "aws_eip" "nat_eip" {
-  vpc = true
+  domain = vpc
 }
 
-resource "aws_nat_gateway" "nat" {
-  allocation_id = aws_eip.nat_eip.id
-  subnet_id     = [aws_subnet.public_subnet_1.id, aws_subnet.public_subnet_2.id]
+resource "aws_nat_gateway" "nat_1" {
+  allocation_id = aws_eip.nat_eip_1.id
+  subnet_id     = aws_subnet.public_subnet_1.id
+}
+
+resource "aws_nat_gateway" "nat_2" {
+  allocation_id = aws_eip.nat_eip_2.id
+  subnet_id     = aws_subnet.public_subnet_2.id
 }
 
 resource "aws_route" "nat_gateway_route" {
