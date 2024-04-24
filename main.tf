@@ -70,8 +70,12 @@ resource "aws_route_table_association" "private_subnet_association_2" {
   route_table_id = aws_route_table.private_route_table.id
 }
 
-resource "aws_eip" "nat_eip" {
-  domain = vpc
+resource "aws_eip" "nat_eip_1" {
+  domain = "vpc_sos"
+}
+
+resource "aws_eip" "nat_eip_2" {
+  domain = "vpc_sos"
 }
 
 resource "aws_nat_gateway" "nat_1" {
@@ -92,8 +96,4 @@ resource "aws_route" "nat_gateway_route" {
 
 resource "aws_internet_gateway" "my_igw" {
   vpc_id = aws_vpc.vpc_1.id
-
-  tags = {
-    Name = var.internet_gateway_name
-  }
 }
