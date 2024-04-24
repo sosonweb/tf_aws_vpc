@@ -91,8 +91,14 @@ resource "aws_nat_gateway" "nat_2" {
 resource "aws_route" "nat_gateway_route" {
   route_table_id         = aws_route_table.private_route_table.id
   destination_cidr_block = "0.0.0.0/0"
-  nat_gateway_id         = aws_nat_gateway.nat.id
+  nat_gateway_id         = aws_nat_gateway.nat_1.id
 }
+resource "aws_route" "nat_gateway_route" {
+  route_table_id         = aws_route_table.private_route_table.id
+  destination_cidr_block = "0.0.0.0/0"
+  nat_gateway_id         = aws_nat_gateway.nat_2.id
+}
+
 
 resource "aws_internet_gateway" "my_igw" {
   vpc_id = aws_vpc.vpc_1.id
