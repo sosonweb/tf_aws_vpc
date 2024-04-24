@@ -71,11 +71,11 @@ resource "aws_route_table_association" "private_subnet_association_2" {
 }
 
 resource "aws_eip" "nat_eip_1" {
-  domain = "vpc_sos"
+  domain = "vpc"
 }
 
 resource "aws_eip" "nat_eip_2" {
-  domain = "vpc_sos"
+  domain = "vpc"
 }
 
 resource "aws_nat_gateway" "nat_1" {
